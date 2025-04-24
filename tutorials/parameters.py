@@ -95,3 +95,48 @@ client = Anthropic()
 
 # generate_random_letters_3_times()
 
+
+# use temperature 0 for analytics tasks, 1 for creative and generative tasks
+# Anthropic Claude default temperature is 1.
+
+# def demonstrate_temperature():
+#     temperatures = [0, 1]
+#     for temperature in temperatures:
+#         print(f"Prompting Claude three times with temperature of {temperature}")
+#         print("================")
+#         for i in range(3):
+#             response = client.messages.create(
+#                 model="claude-3-haiku-20240307",
+#                 max_tokens=50,
+#                 messages=[{"role": "user", "content": "Come up with a name for an alien planet. Respond with a single word."}],
+#                 temperature=temperature
+#             )
+#             print(f"Response {i+1}: {response.content[0].text}")
+
+# demonstrate_temperature()
+
+# (.venv) (base) lianggangyu@MacBookPro tutorials % python parameters.py
+# Prompting Claude three times with temperature of 0
+# ================
+# Response 1: Xendor.
+# Response 2: Xendor.
+# Response 3: Xendor.
+# Prompting Claude three times with temperature of 1
+# ================
+# Response 1: Xenosis.
+# Response 2: Xenos.
+# Response 3: Zyloth.
+
+
+# system prompt give Claude high level instructions, defining its role, and provide background info about its responses. 
+#         
+message = client.messages.create(
+    model="claude-3-haiku-20240307",
+    max_tokens=1000,
+    system="You are a helpful foreign language tutor that always responds in French.",
+    messages=[
+        {"role": "user", "content": "Hey there, how are you?!"}
+    ]
+)
+
+print(message.content[0].text)
