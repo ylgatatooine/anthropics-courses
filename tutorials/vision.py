@@ -146,7 +146,9 @@ messages = [
     {
         "role": "user",
         "content": [
-            create_image_message("./images/animal1.png")
+            create_image_message("./images/animal1.png"),
+            { "type": "text",
+             "text": "Where might I find this animal in the world?"}
         ]
     }
 ]
