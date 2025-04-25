@@ -142,13 +142,25 @@ def create_image_message(image_path):
     
     return image_block
 
+# messages = [
+#     {
+#         "role": "user",
+#         "content": [
+#             create_image_message("./images/animal1.png"),
+#             { "type": "text",
+#              "text": "Where might I find this animal in the world?"}
+#         ]
+#     }
+# ]
+
 messages = [
     {
         "role": "user",
         "content": [
-            create_image_message("./images/animal1.png"),
-            { "type": "text",
-             "text": "Where might I find this animal in the world?"}
+            create_image_message('./images/animal1.png'),
+            create_image_message('./images/animal2.png'),
+            create_image_message('./images/animal3.png'),
+            {"type": "text", "text": "what are these animals?"}
         ]
     }
 ]
