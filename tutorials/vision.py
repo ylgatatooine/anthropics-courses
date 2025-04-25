@@ -6,6 +6,30 @@ import base64
 load_dotenv()
 client = Anthropic()
 
+# messages = [
+#     {"role": "user", "content": "tell me a joke"}
+# ]
+
+# messages = [
+#     {
+#         "role": "user",
+#         "content": [
+#             {"type": "text", "text": "tell me a joke"},
+#         ]
+#     }
+# ]
+
+# messages = [
+#     {
+#         "role": "user",
+#         "content": [
+#             {"type": "text", "text": "who"},
+#             {"type": "text", "text": "made"},
+#             {"type": "text", "text": "you?"},
+#         ]
+#     }
+# ]
+
 with open("./images/uh_oh.png", "rb") as image_file:
     # binary_data = image_file.read()
     # base_64_encoded_data = base64.b64encode(binary_data)
@@ -21,6 +45,7 @@ with open("./images/uh_oh.png", "rb") as image_file:
     base64_string = base_64_encoded_data.decode('utf-8')
 
 
+
 messages = [
     {
         "role": "user",
@@ -31,6 +56,10 @@ messages = [
                 "media_type": "image/png",
                 "data": base64_string
             },
+        },
+        {
+            "type": "text",
+            "text": "What could this person have done to prevent this?"
         }]
     }
 ]
