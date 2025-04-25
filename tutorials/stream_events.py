@@ -1,4 +1,5 @@
 from anthropic import AsyncAnthropic, AsyncMessageStream
+import asyncio
 
 client = AsyncAnthropic()
 
@@ -24,10 +25,11 @@ async def streaming_events_demo():
             }
         ],
         model="claude-3-opus-20240229",
-        event_handler=MyStream,
+        event_handler=MyStream, 
     ) as stream:
         # Get the final accumulated message, after the stream is exhausted
         message = await stream.get_final_message()
         print("accumulated final message: ", message.to_json())
 
-await streaming_events_demo()
+if __name__ == "__main__":
+    asyncio.run(streaming_events_demo())
