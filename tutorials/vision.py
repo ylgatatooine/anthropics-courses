@@ -153,12 +153,27 @@ def create_image_message(image_path):
 #     }
 # ]
 
+# messages = [
+#     {
+#         "role": "user",
+#         "content": [
+#             create_image_message('./images/animal1.png'),
+#             create_image_message('./images/animal2.png'),
+#             create_image_message('./images/animal3.png'),
+#             {"type": "text", "text": "what are these animals?"}
+#         ]
+#     }
+# ]
+
 messages = [
     {
         "role": "user",
         "content": [
+            {"type": "text", "text": "Image 1:"},
             create_image_message('./images/animal1.png'),
+            {"type": "text", "text": "Image 2:"},
             create_image_message('./images/animal2.png'),
+            {"type": "text", "text": "Image 3:"},
             create_image_message('./images/animal3.png'),
             {"type": "text", "text": "what are these animals?"}
         ]
